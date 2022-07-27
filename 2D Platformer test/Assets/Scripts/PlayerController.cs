@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject player;
     public float PlayerMoveSpeed;
-//    private bool RightKeyDown = false;
+    public float PlayerJumpHeight;
+    private bool IsPlayerTouchingFloor = true;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,19 @@ public class PlayerController : MonoBehaviour
             player.transform.Translate(new Vector2(-PlayerMoveSpeed, 0));
         }
 
-    }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (IsPlayerTouchingFloor == true)
+            {
+                player.transform.Translate(new Vector2(0, PlayerJumpHeight));
+            }
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            player.transform.Translate(new Vector2(0, -PlayerJumpHeight));
+        }
+
+    }
 }
