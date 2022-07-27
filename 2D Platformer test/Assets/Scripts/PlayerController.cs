@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject player;
     public float PlayerMoveSpeed;
-    private bool RightKeyDown = false;
+//    private bool RightKeyDown = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +20,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            RightKeyDown = true;
-
-            while (RightKeyDown)
-            {
-                player.transform.Translate(PlayerMoveSpeed, 0, 0);
-            }
-        } 
-        else
-        {
-            RightKeyDown = false;
+            player.transform.Translate(new Vector2(PlayerMoveSpeed, 0));
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            player.transform.Translate(new Vector2(-PlayerMoveSpeed, 0));
+        }
+
     }
 
 }
