@@ -19,29 +19,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.A))
         {
-            player.transform.Translate(new Vector2(PlayerMoveSpeed, 0));
+            transform.Translate(Vector2.left * Time.deltaTime * PlayerMoveSpeed);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.D))
         {
-            player.transform.Translate(new Vector2(-PlayerMoveSpeed, 0));
+            transform.Translate(Vector2.right * Time.deltaTime * PlayerMoveSpeed);
         }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (IsPlayerTouchingFloor == true)
-            {
-                player.transform.Translate(new Vector2(0, PlayerJumpHeight));
-            }
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            player.transform.Translate(new Vector2(0, -PlayerJumpHeight));
-        }
-
     }
 }
