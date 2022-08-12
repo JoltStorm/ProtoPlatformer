@@ -6,9 +6,12 @@ public class PlayerController : MonoBehaviour
 {
 
     public GameObject player;
+    
+    //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel.
     public float PlayerMoveSpeed;
     public float PlayerJumpHeight;
-    private bool IsPlayerTouchingFloor = true;
+    
+    private bool IsGrounded = true;
 
     // Start is called before the first frame update
     void Start()
