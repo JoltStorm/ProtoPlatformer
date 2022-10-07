@@ -2,27 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TO DO: 
+
 public class PlayerController : MonoBehaviour
 {
 
     public GameObject player;
     Rigidbody2D rb;
     
-    //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel.
+    //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel on the player.
     public Vector2 PlayerMoveSpeed;
     public Vector2 PlayerJumpHeight;
     
-    private bool IsGrounded = true;
+    public bool IsGrounded = true;
+    //public for debugging reasons. 
 
-    // Start is called before the first frame update
     void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
-        IsGrounded = Physics.Raycast(transform.position, Vector2.down, 10f);
-        Debug.DrawRay(transform.position, Vector2.down, Color.red);
+        //for easy referencing to the player's rigidbody.
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -40,6 +43,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(PlayerJumpHeight, ForceMode2D.Impulse);
             Debug.Log("Jump Executed");
         }
+        //GetKeyDown is used to prevent infinite jumps.
 
     }
 
@@ -47,6 +51,12 @@ public class PlayerController : MonoBehaviour
     {
         IsGrounded = true;
     }
+
+    //when a collision is detected, set IsGrounded to true. this method is used to make walljumps possible,
+    //But we'll need to change it soon so the player can't just gain infinite height with walljumps.
+    //maybe rb.addForce to the opposite direction of the wall?
+    //we can just keep the current walljump system too,
+    //I guess it depends on what direction we want to take the platforming in. -JS :}
 
     void OnCollisionExit2D(Collision2D collision)
     {

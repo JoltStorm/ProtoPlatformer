@@ -296,6 +296,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &383660984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4319270727636377292, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
+  m_PrefabInstance: {fileID: 2018933615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &383660986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383660984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddbde7b93ab628429a47e044985ab29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerBody: {fileID: 820867403}
 --- !u!1001 &446897944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -501,7 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 820867403}
   PlayerMoveSpeed: {x: 50, y: 0}
-  PlayerJumpHeight: {x: 0, y: 40}
+  PlayerJumpHeight: {x: 0, y: 80}
 --- !u!50 &820867413
 Rigidbody2D:
   serializedVersion: 4
@@ -517,7 +535,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1121,6 +1139,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4319270727636377292, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
+      propertyPath: m_Name
+      value: Player eyes
+      objectReference: {fileID: 0}
     - target: {fileID: 5410058436778382930, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
       propertyPath: PlayerMoveSpeed
       value: 100
@@ -1129,6 +1151,10 @@ PrefabInstance:
       propertyPath: PlayerJumpHeight
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5993755221792330101, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d8724468cd2b17240be4802717950320, type: 3}
     - target: {fileID: 6218669812688182466, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
       propertyPath: m_Name
       value: Player
