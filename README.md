@@ -4,6 +4,7 @@ My first attempt at a platformer. Enjoy.
 
 CHANGE LOG:
 
+10/09/2022: (0.1.3): Added a respawn!
 10/07/2022 (0.1.2): Added eye movement!
 08/12/2022: base movement and camera following finished!
 
