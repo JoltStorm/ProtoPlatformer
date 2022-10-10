@@ -8,6 +8,7 @@ public class EyeController : MonoBehaviour
 {
 
     public GameObject PlayerBody;
+    public GameObject PlayerEyes;
 
     public float PlayerPosX;
     public float PlayerPosY;
@@ -22,15 +23,18 @@ public class EyeController : MonoBehaviour
         PlayerPosX = PlayerBody.transform.position.x;
         PlayerPosY = PlayerBody.transform.position.y;
         EyePosX = gameObject.transform.position.x;
-        EyePosY = gameObject.transform.position.y;        
+        EyePosY = gameObject.transform.position.y;
 
-        Vector2 leftOffset = new(PlayerPosX + -2.0f, PlayerPosY);
-        Vector2 rightOffset = new(PlayerPosX + 2.0f, PlayerPosY);
-        Vector2 upOffset = new(PlayerPosX, PlayerPosY + 1.0f);
+        Vector3 idleOffset = new(PlayerPosX, PlayerPosY, -0.2f);
+        Vector3 leftOffset = new(PlayerPosX + -2.0f, PlayerPosY, -0.2f);
+        Vector3 rightOffset = new(PlayerPosX + 2.0f, PlayerPosY, -0.2f);
+        Vector3 upOffset = new(PlayerPosX, PlayerPosY + 1.0f, -0.2f);
+
         //offset for the eyes.
         //NOTE: you can say "new Vector2()" instead of "new", and that's what intellicode will default to, but both work fine.
+        //NOTE 2: the "-0.2f" is there so the eyes appear in front of the body.
 
-        gameObject.transform.position = PlayerBody.transform.position;
+        gameObject.transform.position = idleOffset;
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
