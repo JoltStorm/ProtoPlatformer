@@ -2,8 +2,10 @@
 My first attempt at a platformer. Enjoy.
 
 
+
 CHANGE LOG:
 
+10/10/2022: (0.1.5): Added t o r u s
 
 10/09/2022: (0.1.4): Fixed issue with eyes appearing behind player (for real this time)
 
@@ -12,6 +14,7 @@ CHANGE LOG:
 10/07/2022 (0.1.2): Added eye movement!
 
 08/12/2022: base movement and camera following finished!
+
 
 
 NOTES: here's the format for update versions in case you were wondering:
