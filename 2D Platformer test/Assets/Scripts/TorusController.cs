@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TorusRotate : MonoBehaviour
+public class TorusController : MonoBehaviour
 {
 
     public Vector3 RotateDirection;
@@ -12,4 +12,5 @@ public class TorusRotate : MonoBehaviour
     {
         transform.Rotate(RotateDirection * Time.deltaTime);
     }
+
 }
