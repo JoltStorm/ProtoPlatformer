@@ -2,12 +2,16 @@
 My first attempt at a platformer. Enjoy.
 
 
-LINK TO GOOGLE DRIVE WITH BUILDS:
+# LINK TO GOOGLE DRIVE WITH BUILDS:
 
 https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sharing
 
 
-CHANGE LOG:
+
+
+# CHANGE LOG:
+
+10/15/2022: (0.1.6): Squashed a few bugs and changed things up behind the scenes
 
 10/10/2022: (0.1.5): Added t o r u s
 
