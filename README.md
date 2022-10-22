@@ -11,9 +11,8 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 # CHANGE LOG:
 
-10/15/2022: (0.1.6): Added pause and unpause, removed torus (for now), adjusted gravity, and fixed a bug
-
 10/22/2022: (0.2): 
+
 	-Added more content
 	
 		-Added a tutorial level
@@ -30,7 +29,8 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 		
 		Finish screen doesn't work on DevLevel
 		
-		
+
+10/15/2022: (0.1.6): Added pause and unpause, removed torus (for now), adjusted gravity, and fixed a bug	
 
 10/10/2022: (0.1.5): Added t o r u s
 
