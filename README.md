@@ -13,6 +13,17 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 10/15/2022: (0.1.6): Added pause and unpause, removed torus (for now), adjusted gravity, and fixed a bug
 
+10/22/2022: (0.2): 
+	-Added more content
+		-Added a tutorial level
+		-Added finish
+		-Added spikes
+		-Changed around a few things!
+	-Known bugs:
+		IsGrounded becomes false when the player is half-way off a platform
+		Finish screen doesn't work on DevLevel
+		
+
 10/10/2022: (0.1.5): Added t o r u s
 
 10/09/2022: (0.1.4): Fixed issue with eyes appearing behind player (for real this time)

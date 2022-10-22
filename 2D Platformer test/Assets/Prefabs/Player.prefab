@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 383660986}
   m_Layer: 0
   m_Name: Player eyes
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ddbde7b93ab628429a47e044985ab29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerBody: {fileID: 6218669812688182466}
-  PlayerEyes: {fileID: 0}
+  PlayerBody: {fileID: 5623753860086705324}
+  PlayerEyes: {fileID: 4319270727636377292}
   PlayerPosX: 0
   PlayerPosY: 0
   EyePosX: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 658859552}
   m_Layer: 0
   m_Name: Player body
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,12 +205,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 15
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &658859551
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 5993755221792330101}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

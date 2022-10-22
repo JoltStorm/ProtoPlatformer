@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public GameObject player;
+    public GameObject GameManagerObject;
     Rigidbody2D rb;
     
     //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel on the player.
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             PauseGame();
             GamePaused = true;
+            
         }
         if(Input.GetKeyDown(KeyCode.Alpha2) && GamePaused == true)
         {
@@ -90,18 +93,37 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         IsGrounded = true;
+
+        //when a collision is detected, set IsGrounded to true. this method is used to make walljumps possible,
+        //But we'll need to change it soon so the player can't just gain infinite height with walljumps.
+        //maybe rb.addForce to the opposite direction of the wall?
+        //we can just keep the current walljump system too,
+        //I guess it depends on what direction we want to take the platforming in. -JS :}
+
+
         if (collision.gameObject.CompareTag("spike"))
         {
-            Debug.Log("ow");
-            SceneManager.LoadScene("level0");
+            PlayerKill();
+        }
+        if (collision.gameObject.CompareTag("exit"))
+        {
+            PlayerFinish();
         }
     }
 
-    //when a collision is detected, set IsGrounded to true. this method is used to make walljumps possible,
-    //But we'll need to change it soon so the player can't just gain infinite height with walljumps.
-    //maybe rb.addForce to the opposite direction of the wall?
-    //we can just keep the current walljump system too,
-    //I guess it depends on what direction we want to take the platforming in. -JS :}
+    void PlayerKill()
+    {
+        Debug.Log("The player is dead!");
+        SceneManager.LoadScene("level0");
+    }
+    //add life or checkpoint system later?
+
+    void PlayerFinish()
+    {
+        Debug.Log("circle touched (real)");
+        GameManagerObject.GetComponent<GameManager>().isFinishScreenActive = true;
+    }
+
 
     void OnCollisionExit2D(Collision2D collision)
     {
