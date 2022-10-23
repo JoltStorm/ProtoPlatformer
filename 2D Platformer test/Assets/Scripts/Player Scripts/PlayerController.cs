@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
         IsGrounded = true;
         //for some reason, when the player isn't fully on the ground it doesn't count as grounded
 
-        //when a collision is detected, set IsGrounded to true. this method is used to make walljumps possible,
+        //when a collision is detected, set IsGrounded to true. this method makes walljumps possible,
         //But we'll need to change it soon so the player can't just gain infinite height with walljumps.
         //maybe rb.addForce to the opposite direction of the wall?
         //we can just keep the current walljump system too,
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerFinish();
         }
-        if (collision.gameObject.CompareTag("void"))
+        if (collision.gameObject.CompareTag("touchKill"))
         {
             PlayerKill();
         }
@@ -142,6 +142,10 @@ public class PlayerController : MonoBehaviour
         playerEyes.SetActive(false);
     }
 
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        IsGrounded = true;
+    }
 
     void OnCollisionExit2D(Collision2D collision)
     {
