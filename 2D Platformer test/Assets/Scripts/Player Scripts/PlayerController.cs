@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel on the player.
     public Vector2 PlayerMoveSpeed;
     public Vector2 PlayerJumpHeight;
+    public Vector2 FallSpeed;
     private Vector2 spawnPos = new(0, 5);
 
     public bool IsGrounded = true;
@@ -49,6 +50,11 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(PlayerJumpHeight, ForceMode2D.Impulse);
         }
         //GetKeyDown is used to prevent infinite jumps.
+
+        if (Input.GetKeyDown(KeyCode.DownArrow) && IsGrounded == false)
+        {
+            rb.AddForce(FallSpeed, ForceMode2D.Impulse);
+        }
 
         //player controls
 
@@ -110,6 +116,10 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("exit"))
         {
             PlayerFinish();
+        }
+        if (collision.gameObject.CompareTag("void"))
+        {
+            PlayerKill();
         }
     }
 

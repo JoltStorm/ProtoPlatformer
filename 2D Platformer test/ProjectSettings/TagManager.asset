@@ -8,6 +8,7 @@ TagManager:
   - spike
   - player
   - exit
+  - touchKill
   layers:
   - Default
   - TransparentFX

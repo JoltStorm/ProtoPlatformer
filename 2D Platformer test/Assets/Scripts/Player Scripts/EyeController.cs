@@ -29,6 +29,7 @@ public class EyeController : MonoBehaviour
         Vector3 leftOffset = new(PlayerPosX + -2.0f, PlayerPosY, -0.2f);
         Vector3 rightOffset = new(PlayerPosX + 2.0f, PlayerPosY, -0.2f);
         Vector3 upOffset = new(PlayerPosX, PlayerPosY + 1.0f, -0.2f);
+        Vector3 downOffset = new(PlayerPosX, PlayerPosY - 2.0f, -0.2f);
 
         //offset for the eyes.
         //NOTE: you can say "new Vector2()" instead of "new", and that's what intellicode will default to, but both work fine.
@@ -49,6 +50,11 @@ public class EyeController : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {   
             gameObject.transform.position = upOffset;
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            gameObject.transform.position = downOffset;
         }
     }
 }

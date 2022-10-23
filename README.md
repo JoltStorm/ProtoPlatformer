@@ -10,6 +10,17 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 
 # CHANGE LOG:
+10/23/2022: (0.2.2):
+
+	-Added a quick fall
+
+	-Added a void that kills you upon touching
+
+known bugs:
+	
+	-IsGrounded is false when slightly off a platform (I assure you, this will be fixed soon)
+
+
 10/23/2022: (0.2.1):
 
 	-Fixed Finish Screen on DevLevel
