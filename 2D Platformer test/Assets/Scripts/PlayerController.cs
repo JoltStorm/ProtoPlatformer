@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public GameObject player;
+    public GameObject playerEyes;
     public GameObject GameManagerObject;
     Rigidbody2D rb;
     
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         IsGrounded = true;
+        //for some reason, when the player isn't fully on the ground it doesn't count as grounded
 
         //when a collision is detected, set IsGrounded to true. this method is used to make walljumps possible,
         //But we'll need to change it soon so the player can't just gain infinite height with walljumps.
@@ -114,14 +116,20 @@ public class PlayerController : MonoBehaviour
     void PlayerKill()
     {
         Debug.Log("The player is dead!");
-        SceneManager.LoadScene("level0");
+        GameManagerObject.GetComponent<GameManager>().DeadOrAlive = false;
+        GameManagerObject.GetComponent<GameManager>().isFinishScreenActive = true;
+        gameObject.SetActive(false);
+        playerEyes.SetActive(false);
     }
     //add life or checkpoint system later?
 
     void PlayerFinish()
     {
         Debug.Log("circle touched (real)");
+        GameManagerObject.GetComponent<GameManager>().DeadOrAlive = true;
         GameManagerObject.GetComponent<GameManager>().isFinishScreenActive = true;
+        gameObject.SetActive(false);
+        playerEyes.SetActive(false);
     }
 
 
