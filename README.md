@@ -11,8 +11,11 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 # CHANGE LOG:
 10/23/2022: (0.2.1):
+
 	-Fixed Finish Screen on DevLevel
+	
 	-Fixed still being able to move while the finish screen is active
+	
 	-Added different text for when you die 
 
 
