@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 //TO DO: 
 
-public class PlayerController : MonoBehaviour
+public class playerController : MonoBehaviour
 {
 
     public GameObject player;
