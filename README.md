@@ -10,6 +10,13 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 
 # CHANGE LOG:
+10/27/2022 (0.2.3):
+
+	-Moved player movement to FixedUpdate to prevent framerate affecting player movement
+	
+	-Migrated to newest Unity LTS version
+
+
 10/23/2022: (0.2.2):
 
 	-Added a quick fall
