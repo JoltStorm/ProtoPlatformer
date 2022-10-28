@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 //TO DO: 
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     public GameObject player;
@@ -32,8 +32,7 @@ public class playerController : MonoBehaviour
 
     }
 
-
-    void Update()
+    private void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -56,7 +55,12 @@ public class playerController : MonoBehaviour
             rb.AddForce(FallSpeed, ForceMode2D.Impulse);
         }
 
-        //player controls
+        //player controls are in fixed update to prevent differences in speed with different framerates
+
+    }
+
+    void Update()
+    {
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && GamePaused == false)
         {
