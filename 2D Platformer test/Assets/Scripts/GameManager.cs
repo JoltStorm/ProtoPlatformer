@@ -70,16 +70,19 @@ public class GameManager : MonoBehaviour
 
     public void RestartCurentLevel()
     {
-        SceneManager.LoadScene("level1");
-        //this is temporary, please find a way to have it load the currently open scene
         isFinishScreenActive = false;
-
     }
 
     public void GoToDevLevel()
     {
         SceneManager.LoadScene("Level0");
         isFinishScreenActive = false;
+    }
+
+    public void GoToNextLevel()
+    {
+        //add float storing player's current level,
+        //add cases for each float corresponding to each level
     }
 
 }

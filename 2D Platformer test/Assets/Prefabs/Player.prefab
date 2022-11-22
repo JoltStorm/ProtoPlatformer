@@ -205,7 +205,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 15
+  m_GravityScale: 20
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -252,11 +252,13 @@ MonoBehaviour:
   player: {fileID: 5623753860086705324}
   playerEyes: {fileID: 0}
   GameManagerObject: {fileID: 0}
+  Torus: {fileID: 0}
   PlayerMoveSpeed: {x: 50, y: 0}
   PlayerJumpHeight: {x: 0, y: 80}
   FallSpeed: {x: 0, y: 0}
+  DashForce: {x: 0, y: 0}
   IsGrounded: 1
-  GamePaused: 0
+  DoubleDepleted: 0
 --- !u!1 &6218669812688182466
 GameObject:
   m_ObjectHideFlags: 0

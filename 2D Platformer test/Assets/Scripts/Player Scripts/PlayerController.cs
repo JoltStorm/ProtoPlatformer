@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
         }
         //GetKeyDown is used to prevent infinite jumps.
 
+        if(rb.velocity.y >= 100)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 100);
+        }
+
         if(IsGrounded == true)
         {
             DoubleDepleted = false;
