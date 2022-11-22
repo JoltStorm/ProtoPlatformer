@@ -250,8 +250,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5623753860086705324}
+  playerEyes: {fileID: 0}
+  GameManagerObject: {fileID: 0}
   PlayerMoveSpeed: {x: 50, y: 0}
   PlayerJumpHeight: {x: 0, y: 80}
+  FallSpeed: {x: 0, y: 0}
   IsGrounded: 1
   GamePaused: 0
 --- !u!1 &6218669812688182466
