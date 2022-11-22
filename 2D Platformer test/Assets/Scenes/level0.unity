@@ -705,7 +705,7 @@ PrefabInstance:
       objectReference: {fileID: 1579027810}
     - target: {fileID: 416014074278507652, guid: 987ff68e219de694a9550870684a136a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartCurentLevel
+      value: RestartLevel1
       objectReference: {fileID: 0}
     - target: {fileID: 416014074696152569, guid: 987ff68e219de694a9550870684a136a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1207,7 +1207,15 @@ PrefabInstance:
       objectReference: {fileID: 1579027810}
     - target: {fileID: 3591589215662815779, guid: 62b3ec4f9287dac448f009ecbad18335, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartCurentLevel
+      value: GoToDevLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7716624012001702627, guid: 62b3ec4f9287dac448f009ecbad18335, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1579027810}
+    - target: {fileID: 7716624012001702627, guid: 62b3ec4f9287dac448f009ecbad18335, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62b3ec4f9287dac448f009ecbad18335, type: 3}
@@ -2397,6 +2405,7 @@ MonoBehaviour:
   finishScreenDead: {fileID: 1097016846}
   isFinishScreenActive: 0
   DeadOrAlive: 1
+  GamePaused: 0
 --- !u!4 &1579027811
 Transform:
   m_ObjectHideFlags: 0
@@ -2412,6 +2421,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1620588173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3892493895263142346, guid: e44049ad3c0984c4094ba23bf8fbba17, type: 3}
+  m_PrefabInstance: {fileID: 1955803842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1705236528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2723,6 +2737,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 658859552, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
+      propertyPath: Torus
+      value: 
+      objectReference: {fileID: 1620588173}
     - target: {fileID: 658859552, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
       propertyPath: LevelObjs
       value: 

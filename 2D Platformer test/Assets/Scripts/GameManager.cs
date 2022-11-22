@@ -68,15 +68,29 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Resumed!");
     }
 
-    public void RestartCurentLevel()
+    public void RestartLevel1()
     {
+        SceneManager.LoadScene("level1");
+        //TEMPORARY. PLEASE REPLACE WITH CURRENT SCENE SOON!!! 
         isFinishScreenActive = false;
+    }
+
+    public void RestartLevel2()
+    {
+        //TEMPORARY. PLEASE REPLACE WITH CURRENT SCENE SOON!!! 
+        SceneManager.LoadScene("level2");
     }
 
     public void GoToDevLevel()
     {
-        SceneManager.LoadScene("Level0");
+        SceneManager.LoadScene("level0");
         isFinishScreenActive = false;
+    }
+
+    public void GoToLevel2()
+    {
+        //TEMPORARY. PLEASE DELETE AFTER GoToNextLevel IS FINISHED!!!
+        SceneManager.LoadScene("level2");
     }
 
     public void GoToNextLevel()
