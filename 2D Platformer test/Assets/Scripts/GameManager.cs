@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,11 +12,15 @@ public class GameManager : MonoBehaviour
     public bool isFinishScreenActive = false;
     public bool DeadOrAlive = true;
     public bool GamePaused = false;
+    public float CurrentLevelNum = 1;
+    public string CurrentLevel;
+
     //false = dead, true = alive
 
     // Start is called before the first frame update
     void Start()
     {
+        CurrentLevel = "level" + CurrentLevelNum;
         finishScreenAlive.SetActive(false);
         finishScreenDead.SetActive(false);
     }
@@ -23,6 +28,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && GamePaused == false)
         {
@@ -68,35 +75,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Resumed!");
     }
 
-    public void RestartLevel1()
-    {
-        SceneManager.LoadScene("level1");
-        //TEMPORARY. PLEASE REPLACE WITH CURRENT SCENE SOON!!! 
-        isFinishScreenActive = false;
-    }
-
-    public void RestartLevel2()
-    {
-        //TEMPORARY. PLEASE REPLACE WITH CURRENT SCENE SOON!!! 
-        SceneManager.LoadScene("level2");
-    }
-
-    public void GoToDevLevel()
-    {
-        SceneManager.LoadScene("level0");
-        isFinishScreenActive = false;
-    }
-
-    public void GoToLevel2()
-    {
-        //TEMPORARY. PLEASE DELETE AFTER GoToNextLevel IS FINISHED!!!
-        SceneManager.LoadScene("level2");
-    }
-
     public void GoToNextLevel()
     {
-        //add float storing player's current level,
-        //add cases for each float corresponding to each level
+        SceneManager.LoadScene(CurrentLevel);
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(CurrentLevel);
     }
 
 }

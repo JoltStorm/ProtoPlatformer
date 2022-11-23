@@ -1,1 +1,1 @@
-position spikes with the platform's y position + 3.2
+position spikes with the platform's y position + 3.2, or platform's y position -3.2 for upside down spikes

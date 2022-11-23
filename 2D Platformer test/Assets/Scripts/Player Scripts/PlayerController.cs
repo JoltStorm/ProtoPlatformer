@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject playerEyes;
     public GameObject GameManagerObject;
     public GameObject Torus;
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     
     //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel on the player.
@@ -29,9 +29,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
         rb = GetComponent<Rigidbody2D>();
         //for easy referencing to the player's rigidbody.
+        DashForce = new Vector2(80, rb.velocity.y);
 
     }
 
@@ -48,11 +48,6 @@ public class PlayerController : MonoBehaviour
         }
         //player controls are in fixed update to prevent differences in speed with different framerates
 
-        if (Input.GetKey(KeyCode.A))
-        {
-
-        }
-
     }
 
     void Update()
@@ -67,14 +62,15 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(PlayerJumpHeight, ForceMode2D.Impulse);
             DoubleDepleted = true;
         }
+
         //GetKeyDown is used to prevent infinite jumps.
 
-        if(rb.velocity.y >= 100)
+        if (rb.velocity.y >= 100)
         {
             rb.velocity = new Vector2(rb.velocity.x, 100);
         }
 
-        if(IsGrounded == true)
+        if (IsGrounded == true)
         {
             DoubleDepleted = false;
         }
@@ -136,6 +132,7 @@ public class PlayerController : MonoBehaviour
 
     void PlayerFinish()
     {
+        GameManagerObject.GetComponent<GameManager>().CurrentLevel += 1;
         Debug.Log("circle touched (real)");
         GameManagerObject.GetComponent<GameManager>().DeadOrAlive = true;
         GameManagerObject.GetComponent<GameManager>().isFinishScreenActive = true;
@@ -153,5 +150,5 @@ public class PlayerController : MonoBehaviour
     {
         IsGrounded = false;
     }
-
+        
 }
