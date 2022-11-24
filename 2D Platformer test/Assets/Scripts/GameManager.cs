@@ -1,12 +1,13 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     public GameObject finishScreenAlive;
     public GameObject finishScreenDead;
     public bool isFinishScreenActive = false;
@@ -28,9 +29,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
         if (Input.GetKeyDown(KeyCode.Alpha1) && GamePaused == false)
         {
             PauseGame();
@@ -75,14 +73,21 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Resumed!");
     }
 
-    public void GoToNextLevel()
-    {
+    public void GoToNextLevel() {
+        string sceneName = SceneManager.GetActiveScene().name;
+        CurrentLevelNum = float.Parse(sceneName.Substring(5, sceneName.Length - 5)) + 1;
+        CurrentLevel = "level" + CurrentLevelNum;
+        
         SceneManager.LoadScene(CurrentLevel);
+
     }
 
     public void RestartLevel()
     {
+        string sceneName = SceneManager.GetActiveScene().name;
+        CurrentLevelNum = float.Parse(sceneName.Substring(5, sceneName.Length - 5));
+        CurrentLevel = "level" + CurrentLevelNum;
+
         SceneManager.LoadScene(CurrentLevel);
     }
-
 }
