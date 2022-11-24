@@ -705,7 +705,7 @@ PrefabInstance:
       objectReference: {fileID: 1579027810}
     - target: {fileID: 416014074278507652, guid: 987ff68e219de694a9550870684a136a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartLevel1
+      value: RestartLevel
       objectReference: {fileID: 0}
     - target: {fileID: 416014074696152569, guid: 987ff68e219de694a9550870684a136a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1215,7 +1215,7 @@ PrefabInstance:
       objectReference: {fileID: 1579027810}
     - target: {fileID: 7716624012001702627, guid: 62b3ec4f9287dac448f009ecbad18335, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartLevel1
+      value: GoToNextLevel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62b3ec4f9287dac448f009ecbad18335, type: 3}
@@ -2406,6 +2406,8 @@ MonoBehaviour:
   isFinishScreenActive: 0
   DeadOrAlive: 1
   GamePaused: 0
+  CurrentLevelNum: 1
+  CurrentLevel: 
 --- !u!4 &1579027811
 Transform:
   m_ObjectHideFlags: 0
