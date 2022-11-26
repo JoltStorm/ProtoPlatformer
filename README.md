@@ -10,11 +10,14 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 
 # CHANGE LOG:
-11/22/2022 (0.3-pre (don't include when merging into main))
+0.3-pre (edit when merging into main)
 
 	-Added in double jump
 	
 	-Increased the gravity scale of player from 15 to 20
+
+	-Added in system for level-changing buttons (thank you Enckripted)
+
 
 
 10/27/2022 (0.2.3):
