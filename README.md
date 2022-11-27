@@ -10,6 +10,20 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 
 # CHANGE LOG:
+11/27/2022: (0.3):
+
+	-Added in double jump
+
+	-Added in system for level-changing buttons (thank you Enckripted)
+
+	-Adjusted player physics
+
+	-Added 3 new levels
+
+	-Changed a few things around behind the scenes
+
+
+
 10/27/2022 (0.2.3):
 
 	-Moved player movement to FixedUpdate to prevent framerate affecting player movement

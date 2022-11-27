@@ -5,16 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
+    [Header("Object References")]
     public GameObject finishScreenAlive;
     public GameObject finishScreenDead;
+
+    [Header("Bools")]
     public bool isFinishScreenActive = false;
     public bool DeadOrAlive = true;
     //false = dead, true = alive
+    public bool GamePaused = false;
+
+    [Header("Current Level Vars")]
+    public float CurrentLevelNum = 1;
+    public string CurrentLevel;
 
     // Start is called before the first frame update
     void Start()
     {
+        CurrentLevel = "level" + CurrentLevelNum;
         finishScreenAlive.SetActive(false);
         finishScreenDead.SetActive(false);
     }
@@ -22,7 +30,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isFinishScreenActive == true && DeadOrAlive == false)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && GamePaused == false)
+        {
+            PauseGame();
+            GamePaused = true;
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && GamePaused == true)
+        {
+            ResumeGame();
+            GamePaused = false;
+        }
+        //1 and 2 are used (for now) so that pausing doesn't immidiately unpause after pausing. Try to find a fix for this soon. -JS
+
+        if (isFinishScreenActive == true && DeadOrAlive == false)
         {
             finishScreenDead.SetActive(true);
         }
@@ -41,18 +62,35 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RestartCurentLevel()
+    void PauseGame()
     {
-        SceneManager.LoadScene("level1");
-        //this is temporary, please find a way to have it load the currently open scene
-        isFinishScreenActive = false;
+        Time.timeScale = 0;
+        Debug.Log("Game Paused!");
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
+        Debug.Log("Game Resumed!");
+    }
+
+    public void GoToNextLevel() {
+        string sceneName = SceneManager.GetActiveScene().name;
+        CurrentLevelNum = float.Parse(sceneName.Substring(5, sceneName.Length - 5)) + 1;
+        CurrentLevel = "level" + CurrentLevelNum;
+        
+        SceneManager.LoadScene(CurrentLevel);
+        //thanks Enckripted
 
     }
 
-    public void GoToDevLevel()
+    public void RestartLevel()
     {
-        SceneManager.LoadScene("Level0");
-        isFinishScreenActive = false;
-    }
+        string sceneName = SceneManager.GetActiveScene().name;
+        CurrentLevelNum = float.Parse(sceneName.Substring(5, sceneName.Length - 5));
+        CurrentLevel = "level" + CurrentLevelNum;
 
+        SceneManager.LoadScene(CurrentLevel);
+    }
+    
 }

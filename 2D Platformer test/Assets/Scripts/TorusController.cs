@@ -12,5 +12,4 @@ public class TorusController : MonoBehaviour
     {
         transform.Rotate(RotateDirection * Time.deltaTime);
     }
-
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1869815681663257950}
   m_Layer: 0
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,9 +140,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1869815681663257950}
     m_Modifications:
+    - target: {fileID: 4447136053110135406, guid: ae6928a82b821534cad696c5223b2e10, type: 3}
+      propertyPath: m_TagString
+      value: exit
+      objectReference: {fileID: 0}
     - target: {fileID: 4628202117068563127, guid: ae6928a82b821534cad696c5223b2e10, type: 3}
       propertyPath: m_Name
       value: Torus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628202117068563127, guid: ae6928a82b821534cad696c5223b2e10, type: 3}
+      propertyPath: m_TagString
+      value: exit
       objectReference: {fileID: 0}
     - target: {fileID: 5436264632583288845, guid: ae6928a82b821534cad696c5223b2e10, type: 3}
       propertyPath: m_RootOrder

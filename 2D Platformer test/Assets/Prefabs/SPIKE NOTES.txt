@@ -1,1 +1,0 @@
-position spikes with the platform's y position + 3.2

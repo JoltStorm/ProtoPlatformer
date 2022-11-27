@@ -1,0 +1,3 @@
+All basic floor pieces are 5 units apart for both x and y
+position spikes with the platform's y position + 3.2, or platform's y position -3.2 for upside down spikes
+position springs 0.5 y below what you would for a basic floor piece (example: 4.5 instead of 5)
