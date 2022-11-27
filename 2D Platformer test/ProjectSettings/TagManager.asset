@@ -9,6 +9,11 @@ TagManager:
   - player
   - exit
   - touchKill
+  - VSpring
+  - spring
+  - HLspring
+  - HRspring
+  - HSpring
   layers:
   - Default
   - TransparentFX

@@ -10,13 +10,16 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 
 # CHANGE LOG:
-0.3-pre (edit when merging into main)
-
+11/27/2022: (0.3):
 	-Added in double jump
-	
-	-Increased the gravity scale of player from 15 to 20
 
 	-Added in system for level-changing buttons (thank you Enckripted)
+
+	-Adjusted player physics
+
+	-Added 3 new levels
+
+	-Changed a few things around behind the scenes
 
 
 

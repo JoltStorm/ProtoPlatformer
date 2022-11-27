@@ -8,31 +8,35 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-
+    [Header("Object References")]
     public GameObject player;
     public GameObject playerEyes;
     public GameObject GameManagerObject;
     public GameObject Torus;
     private Rigidbody2D rb;
 
-    
+    [Header("Vectors")]
     //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel on the player.
-    public Vector2 PlayerMoveSpeed;
-    public Vector2 PlayerJumpHeight;
-    public Vector2 FallSpeed;
-    public Vector2 DashForce;
+    //default values are next to the vectors
+    public Vector2 PlayerMoveSpeed; //X=50 Y=0
+    public Vector2 PlayerJumpHeight; //X=0 Y=80
+    public Vector2 FallSpeed; //X=0 Y= -160
+    public Vector2 VspringForce; //X=0 Y=200
+    public Vector2 HLspringForce; //X= -200 Y=0
+    public Vector2 HRspringForce; //X=200 Y=0
     private Vector2 spawnPos = new(0, 5);
+    //note: dash removed for now, if it seems like a good enough idea we can add it back later
 
+    [Header("Bools")]
     public bool IsGrounded = true;
     public bool DoubleDepleted = false;
+    public bool SpeedcapEnabled = true;
     //public for debugging reasons. 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         //for easy referencing to the player's rigidbody.
-        DashForce = new Vector2(80, rb.velocity.y);
-
     }
 
     private void FixedUpdate()
@@ -59,16 +63,31 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded == false && DoubleDepleted == false)
         {
             rb.velocity = new Vector2(0, 0);
+            //velocity is reset as to allow more horizontal movement in midair
             rb.AddForce(PlayerJumpHeight, ForceMode2D.Impulse);
             DoubleDepleted = true;
         }
 
         //GetKeyDown is used to prevent infinite jumps.
 
-        if (rb.velocity.y >= 100)
+        if (rb.velocity.y >= 100 && SpeedcapEnabled == true)
         {
             rb.velocity = new Vector2(rb.velocity.x, 100);
         }
+        if (rb.velocity.y <= -100 && SpeedcapEnabled == true)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -100);
+        }
+
+        if(rb.velocity.x >= 100 && SpeedcapEnabled == false)
+        {
+            rb.velocity = new Vector2(100, rb.velocity.y);
+        }
+        if(rb.velocity.x <= -100 && SpeedcapEnabled == false)
+        {
+            rb.velocity = new Vector2(-100, rb.velocity.y);
+        }
+        //The velocity caps are for wallboosting and springs
 
         if (IsGrounded == true)
         {
@@ -81,6 +100,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //jump and fastfall are in regular update because jumping gets a little funky when it's in fixed update.
+        //experiment with different FPS caps to see if there's any difference soon
 
 
         if (Input.GetKeyDown(KeyCode.Return))
@@ -101,10 +121,8 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         IsGrounded = true;
-        //with our current system, IsGrounded is set to true on any contact. This allows for wall jumping, but the player can also wall grip by
-        //moving into the wall. We need to find a way to detect if the player is on a wall, then apply force diagonally away from the wall.
-        //This is not a high priority task, so work on this in your own time in a different branch if you want to.
-
+        SpeedcapEnabled = true;
+       //Speedcap is enabled on collision enter and stay to prevent wallboosting into the sky, but allowing springs
 
         if (collision.gameObject.CompareTag("spike"))
         {
@@ -117,6 +135,24 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("touchKill"))
         {
             PlayerKill();
+        }
+        if (collision.gameObject.CompareTag("VSpring"))
+        {
+            rb.velocity = new Vector2(0, 0);
+            rb.AddForce(VspringForce, ForceMode2D.Impulse);
+            SpeedcapEnabled = false;
+        }
+        if (collision.gameObject.CompareTag("HLspring"))
+        {
+            rb.velocity = new Vector2(0, 0);
+            rb.AddForce(HLspringForce, ForceMode2D.Impulse);
+            SpeedcapEnabled = false;
+        } 
+        if (collision.gameObject.CompareTag("HRspring"))
+        {
+            rb.velocity = new Vector2(0, 0);
+            rb.AddForce(HRspringForce, ForceMode2D.Impulse);
+            SpeedcapEnabled = false;
         }
     }
 
@@ -144,11 +180,13 @@ public class PlayerController : MonoBehaviour
     void OnCollisionStay2D(Collision2D collision)
     {
         IsGrounded = true;
+        SpeedcapEnabled = true;
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         IsGrounded = false;
+        SpeedcapEnabled = false;
     }
         
 }

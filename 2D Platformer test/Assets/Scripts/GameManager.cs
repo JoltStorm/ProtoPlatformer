@@ -1,22 +1,23 @@
-using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Object References")]
     public GameObject finishScreenAlive;
     public GameObject finishScreenDead;
+
+    [Header("Bools")]
     public bool isFinishScreenActive = false;
     public bool DeadOrAlive = true;
+    //false = dead, true = alive
     public bool GamePaused = false;
+
+    [Header("Current Level Vars")]
     public float CurrentLevelNum = 1;
     public string CurrentLevel;
-
-    //false = dead, true = alive
 
     // Start is called before the first frame update
     void Start()
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
         CurrentLevel = "level" + CurrentLevelNum;
         
         SceneManager.LoadScene(CurrentLevel);
+        //thanks Enckripted
 
     }
 
@@ -90,4 +92,5 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(CurrentLevel);
     }
+    
 }
