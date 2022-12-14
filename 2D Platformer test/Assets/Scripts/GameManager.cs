@@ -74,7 +74,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Resumed!");
     }
 
-    public void GoToNextLevel() {
+    public void GoToNextLevel()
+    {
         string sceneName = SceneManager.GetActiveScene().name;
         CurrentLevelNum = float.Parse(sceneName.Substring(5, sceneName.Length - 5)) + 1;
         CurrentLevel = "level" + CurrentLevelNum;

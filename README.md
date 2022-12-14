@@ -10,6 +10,12 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 
 # CHANGE LOG:
+12/13/22 (0.3.1):
+
+	-Added title screen
+
+	-This will likely be the final update, unless someone suggests something good.
+
 11/27/2022: (0.3):
 
 	-Added in double jump
