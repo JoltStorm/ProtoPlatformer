@@ -10,6 +10,13 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 
 # CHANGE LOG:
+12/26/2022 (0.3.1.1):
+
+	-Updated game to newest unity LTS version
+
+	-that's all... for now ;)
+
+
 12/13/22 (0.3.1):
 
 	-Added title screen
