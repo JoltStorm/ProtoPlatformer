@@ -903,6 +903,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishScreenAlive: {fileID: 372769035}
   finishScreenDead: {fileID: 5393423188706853775}
+  player: {fileID: 1502393068}
+  playerEyes: {fileID: 890264708}
+  torus: {fileID: 1861611823}
   isFinishScreenActive: 0
   DeadOrAlive: 1
   GamePaused: 0
@@ -1543,6 +1546,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1861611823}
     - target: {fileID: 658859552, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
+      propertyPath: finishDead
+      value: 
+      objectReference: {fileID: 5393423188706853775}
+    - target: {fileID: 658859552, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
       propertyPath: springForce.y
       value: 400
       objectReference: {fileID: 0}
@@ -1604,6 +1611,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
+--- !u!1 &890264708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4319270727636377292, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
+  m_PrefabInstance: {fileID: 890264707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1028525655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6145129719711751514, guid: c28bf1bb8cf811a4cb7d584ef73ed61e, type: 3}
@@ -2791,7 +2803,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: e44049ad3c0984c4094ba23bf8fbba17, type: 3}
 --- !u!1 &1861611823 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3892493895263142346, guid: e44049ad3c0984c4094ba23bf8fbba17, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2934722731765826843, guid: e44049ad3c0984c4094ba23bf8fbba17, type: 3}
   m_PrefabInstance: {fileID: 1861611822}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1881628446

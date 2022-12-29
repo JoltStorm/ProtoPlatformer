@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject GameManagerObject;
     public GameObject Torus;
     private Rigidbody2D rb;
+    public GameObject finishDead;
 
     [Header("Vectors")]
     //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel on the player.
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 VspringForce; //X=0 Y=200
     public Vector2 HLspringForce; //X= -200 Y=0
     public Vector2 HRspringForce; //X=200 Y=0
-    private Vector2 spawnPos = new(0, 5);
+    public Vector2 spawnPos = new(0, 5);
     //note: dash removed for now, if it seems like a good enough idea we can add it back later
 
     [Header("Bools")]
@@ -104,18 +105,19 @@ public class PlayerController : MonoBehaviour
         //jump and fastfall are in regular update because jumping gets a little funky when it's in fixed update.
         //experiment with different FPS caps to see if there's any difference soon
 
-
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Respawn();
         }
-
     }
 
 
 
     void Respawn()
     {
+        print("respawn ran");
+        player.SetActive(true);
+        playerEyes.SetActive(true);
         rb.velocity = new Vector2(0, 0);
         transform.position = spawnPos;
     }
@@ -128,14 +130,17 @@ public class PlayerController : MonoBehaviour
         {
             PlayerKill();
         }
+
         if (collision.gameObject.CompareTag("exit"))
         {
             PlayerFinish();
         }
+
         if (collision.gameObject.CompareTag("touchKill"))
         {
             PlayerKill();
         }
+
         if (collision.gameObject.CompareTag("VSpring"))
         {
             rb.velocity = new Vector2(0, 0);
@@ -151,6 +156,14 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(HRspringForce, ForceMode2D.Impulse);
         }
+        if (collision.gameObject.CompareTag("checkpoint"))
+        {
+            spawnPos = collision.gameObject.transform.position;
+            print("checkpoint collected");
+            collision.gameObject.SetActive(false);
+        }
+
+
     }
 
     void PlayerKill()
@@ -169,7 +182,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("circle touched (real)");
         GameManagerObject.GetComponent<GameManager>().DeadOrAlive = true;
         GameManagerObject.GetComponent<GameManager>().isFinishScreenActive = true;
-        gameObject.SetActive(false);
+        player.SetActive(false);
         playerEyes.SetActive(false);
         Torus.SetActive(false);
     }

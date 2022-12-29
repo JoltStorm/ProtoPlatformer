@@ -14,6 +14,7 @@ TagManager:
   - HLspring
   - HRspring
   - HSpring
+  - checkpoint
   layers:
   - Default
   - TransparentFX

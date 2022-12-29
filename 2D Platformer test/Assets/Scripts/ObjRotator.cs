@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TorusController : MonoBehaviour
+public class ObjRotator : MonoBehaviour
 {
 
     public Vector3 RotateDirection;

@@ -872,6 +872,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishScreenAlive: {fileID: 372769035}
   finishScreenDead: {fileID: 5393423188706853775}
+  player: {fileID: 1260455039}
+  playerEyes: {fileID: 1402927384}
+  torus: {fileID: 905146200}
   isFinishScreenActive: 0
   DeadOrAlive: 1
   GamePaused: 0
@@ -2672,6 +2675,10 @@ PrefabInstance:
       propertyPath: torus
       value: 
       objectReference: {fileID: 905146200}
+    - target: {fileID: 658859552, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
+      propertyPath: finishDead
+      value: 
+      objectReference: {fileID: 5393423188706853775}
     - target: {fileID: 658859552, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
       propertyPath: playerEyes
       value: 

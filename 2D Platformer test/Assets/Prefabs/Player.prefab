@@ -113,9 +113,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4612894976233847204}
   - component: {fileID: 9093237444496604769}
+  - component: {fileID: 658859552}
   - component: {fileID: 658859550}
   - component: {fileID: 658859551}
-  - component: {fileID: 658859552}
   m_Layer: 0
   m_Name: Player body
   m_TagString: player
@@ -190,6 +190,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &658859552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5623753860086705324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1dafef732ac3ec4f8c02e063a4f809f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5623753860086705324}
+  playerEyes: {fileID: 4319270727636377292}
+  GameManagerObject: {fileID: 0}
+  Torus: {fileID: 0}
+  finishScreens: {fileID: 0}
+  PlayerMoveSpeed: {x: 50, y: 0}
+  PlayerJumpHeight: {x: 0, y: 80}
+  FallSpeed: {x: 0, y: -160}
+  VspringForce: {x: 0, y: 0}
+  HLspringForce: {x: -200, y: 0}
+  HRspringForce: {x: 200, y: 0}
+  currentCheckpointNum: 0
+  IsGrounded: 1
+  DoubleDepleted: 0
+  SpeedcapEnabled: 1
 --- !u!50 &658859550
 Rigidbody2D:
   serializedVersion: 4
@@ -237,31 +264,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &658859552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5623753860086705324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1dafef732ac3ec4f8c02e063a4f809f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 5623753860086705324}
-  playerEyes: {fileID: 4319270727636377292}
-  GameManagerObject: {fileID: 0}
-  Torus: {fileID: 0}
-  PlayerMoveSpeed: {x: 50, y: 0}
-  PlayerJumpHeight: {x: 0, y: 80}
-  FallSpeed: {x: 0, y: -160}
-  VspringForce: {x: 0, y: 0}
-  HLspringForce: {x: -200, y: 0}
-  HRspringForce: {x: 200, y: 0}
-  IsGrounded: 1
-  DoubleDepleted: 0
-  SpeedcapEnabled: 1
 --- !u!1 &6218669812688182466
 GameObject:
   m_ObjectHideFlags: 0

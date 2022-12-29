@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [Header("Object References")]
     public GameObject finishScreenAlive;
     public GameObject finishScreenDead;
+    public GameObject player;
+    public GameObject playerEyes;
+    public GameObject torus;
 
     [Header("Bools")]
     public bool isFinishScreenActive = false;
@@ -41,26 +44,54 @@ public class GameManager : MonoBehaviour
             ResumeGame();
             GamePaused = false;
         }
-        //1 and 2 are used (for now) so that pausing doesn't immidiately unpause after pausing. Try to find a fix for this soon. -JS
 
-        if (isFinishScreenActive == true && DeadOrAlive == false)
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            finishScreenDead.SetActive(true);
+            if(player.activeInHierarchy == false)
+            {
+                ExternalRespawn();
+            }
+
+        }
+
+        //1 and 2 are used (for now) so that pausing doesn't immidiately unpause after pausing. Try to find a fix for this soon. -JS
+        if (player.activeInHierarchy == false)
+        {
+            if (isFinishScreenActive == true && DeadOrAlive == false)
+            {
+                finishScreenDead.SetActive(true);
+            }
+            else
+            {
+                finishScreenDead.SetActive(false);
+            }
+
+            if (isFinishScreenActive == true && DeadOrAlive == true)
+            {
+                finishScreenAlive.SetActive(true);
+            }
+            else
+            {
+                finishScreenAlive.SetActive(false);
+            }
         }
         else
         {
             finishScreenDead.SetActive(false);
-        }
-
-        if (isFinishScreenActive == true && DeadOrAlive == true)
-        {
-            finishScreenAlive.SetActive(true);
-        }
-        else
-        {
             finishScreenAlive.SetActive(false);
         }
+
+        if (DeadOrAlive && isFinishScreenActive == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GoToNextLevel();
+            }
+        }
+
     }
+
+
 
     void PauseGame()
     {
@@ -72,6 +103,15 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         Debug.Log("Game Resumed!");
+    }
+
+    public void ExternalRespawn()
+    {
+        player.SetActive(true);
+        playerEyes.SetActive(true);
+        player.GetComponent<Transform>().position = player.GetComponent<PlayerController>().spawnPos;
+        print("player has been respawned externally");
+        torus.SetActive(true);
     }
 
     public void GoToNextLevel()
@@ -94,10 +134,35 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(CurrentLevel);
     }
 
-    public void Restart()
+    public void RestartGame()
     {
         SceneManager.LoadScene("level1");
         
     }
+
+    public void GoToLevel2()
+    {
+        SceneManager.LoadScene("level2");
+    }
+
+    public void GoToLevel3()
+    {
+        SceneManager.LoadScene("level3");
+    }
+
+    public void GoToLevel4()
+    {
+        SceneManager.LoadScene("level4");
+    }
+
+    public void GoToLevel5()
+    {
+        SceneManager.LoadScene("level5");
+    }
     
+    public void GoToLevel6()
+    {
+        SceneManager.LoadScene("level6");
+    }
+
 }

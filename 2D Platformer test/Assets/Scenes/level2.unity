@@ -1487,7 +1487,7 @@ PrefabInstance:
     - target: {fileID: 658859552, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
       propertyPath: Torus
       value: 
-      objectReference: {fileID: 1330276245}
+      objectReference: {fileID: 1815177882}
     - target: {fileID: 658859552, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
       propertyPath: torus
       value: 
@@ -1626,11 +1626,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f42573d4de18e5c479222c4152cef624, type: 3}
---- !u!1 &1330276245 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3892493895263142346, guid: e44049ad3c0984c4094ba23bf8fbba17, type: 3}
-  m_PrefabInstance: {fileID: 1815177881}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1358055727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2125,6 +2120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e44049ad3c0984c4094ba23bf8fbba17, type: 3}
+--- !u!1 &1815177882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2934722731765826843, guid: e44049ad3c0984c4094ba23bf8fbba17, type: 3}
+  m_PrefabInstance: {fileID: 1815177881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1835705644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,6 +2403,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5850432314341925434, guid: bf17bf2ffea82be448de05b2020bcff1, type: 3}
+      propertyPath: torus
+      value: 
+      objectReference: {fileID: 1815177882}
+    - target: {fileID: 5850432314341925434, guid: bf17bf2ffea82be448de05b2020bcff1, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1260455039}
+    - target: {fileID: 5850432314341925434, guid: bf17bf2ffea82be448de05b2020bcff1, type: 3}
+      propertyPath: playerEyes
+      value: 
+      objectReference: {fileID: 1402927384}
     - target: {fileID: 5850432314341925434, guid: bf17bf2ffea82be448de05b2020bcff1, type: 3}
       propertyPath: finishScreenDead
       value: 
