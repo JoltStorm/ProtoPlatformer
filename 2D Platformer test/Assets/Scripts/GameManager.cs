@@ -93,5 +93,11 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(CurrentLevel);
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("level1");
+        
+    }
     
 }

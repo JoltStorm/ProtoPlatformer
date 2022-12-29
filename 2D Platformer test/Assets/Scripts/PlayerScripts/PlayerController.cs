@@ -41,12 +41,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             transform.Translate(-PlayerMoveSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.Translate(PlayerMoveSpeed * Time.deltaTime);
         }
@@ -56,17 +56,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded == true)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded == true || Input.GetKeyDown(KeyCode.W) && IsGrounded == true)
         {
             rb.AddForce(PlayerJumpHeight, ForceMode2D.Impulse);
         }
-        if(Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded == false && DoubleDepleted == false)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded == false && DoubleDepleted == false || Input.GetKeyDown(KeyCode.W) && IsGrounded == false && DoubleDepleted == false)
         {
             rb.velocity = new Vector2(0, 0);
             //velocity is reset as to allow more horizontal movement in midair
             rb.AddForce(PlayerJumpHeight, ForceMode2D.Impulse);
             DoubleDepleted = true;
         }
+
+        SpeedcapEnabled = true;
 
         //GetKeyDown is used to prevent infinite jumps.
 
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(100, rb.velocity.y);
         }
-        if(rb.velocity.x <= -100 && SpeedcapEnabled == false)
+        if(rb.velocity.x <= -90 && SpeedcapEnabled == false)
         {
             rb.velocity = new Vector2(-100, rb.velocity.y);
         }
@@ -94,7 +96,7 @@ public class PlayerController : MonoBehaviour
             DoubleDepleted = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && IsGrounded == false)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && IsGrounded == false || Input.GetKeyDown(KeyCode.S) && IsGrounded == false)
         {
             rb.AddForce(FallSpeed, ForceMode2D.Impulse);
         }
@@ -121,8 +123,6 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         IsGrounded = true;
-        SpeedcapEnabled = true;
-       //Speedcap is enabled on collision enter and stay to prevent wallboosting into the sky, but allowing springs
 
         if (collision.gameObject.CompareTag("spike"))
         {
@@ -140,19 +140,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(VspringForce, ForceMode2D.Impulse);
-            SpeedcapEnabled = false;
         }
         if (collision.gameObject.CompareTag("HLspring"))
         {
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(HLspringForce, ForceMode2D.Impulse);
-            SpeedcapEnabled = false;
         } 
         if (collision.gameObject.CompareTag("HRspring"))
         {
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(HRspringForce, ForceMode2D.Impulse);
-            SpeedcapEnabled = false;
         }
     }
 
@@ -180,13 +177,11 @@ public class PlayerController : MonoBehaviour
     void OnCollisionStay2D(Collision2D collision)
     {
         IsGrounded = true;
-        SpeedcapEnabled = true;
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         IsGrounded = false;
-        SpeedcapEnabled = false;
     }
         
 }
