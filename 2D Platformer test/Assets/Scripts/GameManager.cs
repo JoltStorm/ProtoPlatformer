@@ -165,4 +165,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("level6");
     }
 
+    public void GoToLevel7()
+    {
+        SceneManager.LoadScene("level7");
+    }
+
 }
