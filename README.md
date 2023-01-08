@@ -11,6 +11,20 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 
 # CHANGE LOG:
+1/8/2023 (0.4):
+
+	-Added new levels
+
+	-Modified some levels
+	
+	-Added background
+
+	-Added checkpoints
+
+	-Added level select
+
+	-changed a lot of things around
+
 12/18/2022 (0.3.2):
 
 	-Modified some levels
