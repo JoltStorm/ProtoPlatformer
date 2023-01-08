@@ -81,15 +81,16 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, -100);
         }
 
-        if(rb.velocity.x >= 100 && SpeedcapEnabled == false)
+        if(rb.velocity.x >= 90 && SpeedcapEnabled == false)
         {
-            rb.velocity = new Vector2(100, rb.velocity.y);
+            rb.velocity = new Vector2(90, rb.velocity.y);
         }
         if(rb.velocity.x <= -90 && SpeedcapEnabled == false)
         {
-            rb.velocity = new Vector2(-100, rb.velocity.y);
+            rb.velocity = new Vector2(-90, rb.velocity.y);
         }
         //The velocity caps are for wallboosting and springs
+        //without the x speedcaps, players can clip through walls with a perfect hSpring bounce
 
         if (IsGrounded == true)
         {
@@ -126,7 +127,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("spike"))
         {
-            PlayerKill();
+            Respawn();
         }
         if (collision.gameObject.CompareTag("exit"))
         {
@@ -134,8 +135,14 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("touchKill"))
         {
-            PlayerKill();
+            Respawn();
         }
+<<<<<<< Updated upstream
+=======
+
+        //touchKill and spike have been set to respawn instead of playerkill due to playerkill ignoring checkpoints. fix soon
+
+>>>>>>> Stashed changes
         if (collision.gameObject.CompareTag("VSpring"))
         {
             rb.velocity = new Vector2(0, 0);
@@ -151,6 +158,22 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(HRspringForce, ForceMode2D.Impulse);
         }
+<<<<<<< Updated upstream
+=======
+
+        //there seems to be slight variance in how hard and far the player is shot by the hSprings. most likely has to do with collision, but I'm not sure.
+        //TLDR: find a way to make springs more consistent.
+
+        if (collision.gameObject.CompareTag("checkpoint"))
+        {
+            spawnPos = collision.gameObject.transform.position;
+            print("checkpoint collected");
+            collision.gameObject.SetActive(false);
+            
+        }
+
+
+>>>>>>> Stashed changes
     }
 
     void PlayerKill()

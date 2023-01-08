@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
         if (Input.GetKeyDown(KeyCode.Alpha1) && GamePaused == false)
         {
             PauseGame();
@@ -42,6 +43,31 @@ public class GameManager : MonoBehaviour
             GamePaused = false;
         }
         //1 and 2 are used (for now) so that pausing doesn't immidiately unpause after pausing. Try to find a fix for this soon. -JS
+=======
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if(player.activeInHierarchy == false)
+            {
+                ExternalRespawn();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExternalRespawn();
+        }
+
+        if (player.activeInHierarchy == false)
+        {
+            if (isFinishScreenActive == true && DeadOrAlive == false)
+            {
+                finishScreenDead.SetActive(true);
+            }
+            else
+            {
+                finishScreenDead.SetActive(false);
+            }
+>>>>>>> Stashed changes
 
         if (isFinishScreenActive == true && DeadOrAlive == false)
         {
@@ -74,6 +100,18 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Resumed!");
     }
 
+<<<<<<< Updated upstream
+=======
+    public void ExternalRespawn()
+    {
+        player.SetActive(true);
+        playerEyes.SetActive(true);
+        player.GetComponent<Transform>().position = new Vector2(0, 5);
+        print("player has been respawned externally");
+        torus.SetActive(true);
+    }
+
+>>>>>>> Stashed changes
     public void GoToNextLevel()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -99,5 +137,15 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("level1");
         
     }
+<<<<<<< Updated upstream
     
+=======
+
+    public void GoToLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+    }
+    //select this in the button and type the name of the scene
+
+>>>>>>> Stashed changes
 }
