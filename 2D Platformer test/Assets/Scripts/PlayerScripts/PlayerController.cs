@@ -137,12 +137,10 @@ public class PlayerController : MonoBehaviour
         {
             Respawn();
         }
-<<<<<<< Updated upstream
-=======
 
         //touchKill and spike have been set to respawn instead of playerkill due to playerkill ignoring checkpoints. fix soon
 
->>>>>>> Stashed changes
+
         if (collision.gameObject.CompareTag("VSpring"))
         {
             rb.velocity = new Vector2(0, 0);
@@ -158,8 +156,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(HRspringForce, ForceMode2D.Impulse);
         }
-<<<<<<< Updated upstream
-=======
+
 
         //there seems to be slight variance in how hard and far the player is shot by the hSprings. most likely has to do with collision, but I'm not sure.
         //TLDR: find a way to make springs more consistent.
@@ -172,8 +169,6 @@ public class PlayerController : MonoBehaviour
             
         }
 
-
->>>>>>> Stashed changes
     }
 
     void PlayerKill()

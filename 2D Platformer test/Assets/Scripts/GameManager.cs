@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("Object References")]
+    public GameObject player;
+    public GameObject playerEyes;
+    public GameObject torus;
     public GameObject finishScreenAlive;
     public GameObject finishScreenDead;
 
@@ -30,7 +33,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
+
         if (Input.GetKeyDown(KeyCode.Alpha1) && GamePaused == false)
         {
             PauseGame();
@@ -43,10 +46,10 @@ public class GameManager : MonoBehaviour
             GamePaused = false;
         }
         //1 and 2 are used (for now) so that pausing doesn't immidiately unpause after pausing. Try to find a fix for this soon. -JS
-=======
+
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if(player.activeInHierarchy == false)
+            if (player.activeInHierarchy == false)
             {
                 ExternalRespawn();
             }
@@ -67,27 +70,27 @@ public class GameManager : MonoBehaviour
             {
                 finishScreenDead.SetActive(false);
             }
->>>>>>> Stashed changes
 
-        if (isFinishScreenActive == true && DeadOrAlive == false)
-        {
-            finishScreenDead.SetActive(true);
-        }
-        else
-        {
-            finishScreenDead.SetActive(false);
-        }
 
-        if (isFinishScreenActive == true && DeadOrAlive == true)
-        {
-            finishScreenAlive.SetActive(true);
-        }
-        else
-        {
-            finishScreenAlive.SetActive(false);
+            if (isFinishScreenActive == true && DeadOrAlive == false)
+            {
+                finishScreenDead.SetActive(true);
+            }
+            else
+            {
+                finishScreenDead.SetActive(false);
+            }
+
+            if (isFinishScreenActive == true && DeadOrAlive == true)
+            {
+                finishScreenAlive.SetActive(true);
+            }
+            else
+            {
+                finishScreenAlive.SetActive(false);
+            }
         }
     }
-
     void PauseGame()
     {
         Time.timeScale = 0;
@@ -100,8 +103,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Resumed!");
     }
 
-<<<<<<< Updated upstream
-=======
+
     public void ExternalRespawn()
     {
         player.SetActive(true);
@@ -111,7 +113,7 @@ public class GameManager : MonoBehaviour
         torus.SetActive(true);
     }
 
->>>>>>> Stashed changes
+
     public void GoToNextLevel()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -137,9 +139,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("level1");
         
     }
-<<<<<<< Updated upstream
-    
-=======
 
     public void GoToLevel(string levelName)
     {
@@ -147,5 +146,4 @@ public class GameManager : MonoBehaviour
     }
     //select this in the button and type the name of the scene
 
->>>>>>> Stashed changes
 }
