@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             GamePaused = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if(player.activeInHierarchy == false)
             {
@@ -86,6 +86,11 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 GoToNextLevel();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return)) 
+            {
+                RestartLevel();
             }
         }
 
@@ -139,35 +144,4 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("level1");
         
     }
-
-    public void GoToLevel2()
-    {
-        SceneManager.LoadScene("level2");
-    }
-
-    public void GoToLevel3()
-    {
-        SceneManager.LoadScene("level3");
-    }
-
-    public void GoToLevel4()
-    {
-        SceneManager.LoadScene("level4");
-    }
-
-    public void GoToLevel5()
-    {
-        SceneManager.LoadScene("level5");
-    }
-    
-    public void GoToLevel6()
-    {
-        SceneManager.LoadScene("level6");
-    }
-
-    public void GoToLevel7()
-    {
-        SceneManager.LoadScene("level7");
-    }
-
 }
