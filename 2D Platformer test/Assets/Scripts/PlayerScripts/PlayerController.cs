@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject finishDead;
 
+    [Header("Floats")]
+    public float SpeedCapX; //unused for now
+    public float SpeedCapY; //default is 100
+
     [Header("Vectors")]
     //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel on the player.
     //default values are next to the vectors
@@ -73,22 +77,13 @@ public class PlayerController : MonoBehaviour
 
         //GetKeyDown is used to prevent infinite jumps.
 
-        if (rb.velocity.y >= 100 && SpeedcapEnabled == true)
+        if (rb.velocity.y >= SpeedCapY && SpeedcapEnabled == true)
         {
             rb.velocity = new Vector2(rb.velocity.x, 100);
         }
-        if (rb.velocity.y <= -100 && SpeedcapEnabled == true)
+        if (rb.velocity.y <= -SpeedCapY && SpeedcapEnabled == true)
         {
             rb.velocity = new Vector2(rb.velocity.x, -100);
-        }
-
-        if(rb.velocity.x >= 100 && SpeedcapEnabled == false)
-        {
-            rb.velocity = new Vector2(100, rb.velocity.y);
-        }
-        if(rb.velocity.x <= -90 && SpeedcapEnabled == false)
-        {
-            rb.velocity = new Vector2(-100, rb.velocity.y);
         }
         //The velocity caps are for wallboosting and springs
 

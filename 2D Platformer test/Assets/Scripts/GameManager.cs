@@ -1,34 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
+// Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// GameManager
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Object References")]
-    public GameObject finishScreenAlive;
-    public GameObject finishScreenDead;
-    public GameObject player;
-    public GameObject playerEyes;
-    public GameObject torus;
+	[Header("Object References")]
+	public GameObject finishScreenAlive;
 
-    [Header("Bools")]
-    public bool isFinishScreenActive = false;
-    public bool DeadOrAlive = true;
-    //false = dead, true = alive
-    public bool GamePaused = false;
+	public GameObject finishScreenDead;
 
-    [Header("Current Level Vars")]
-    public float CurrentLevelNum = 1;
-    public string CurrentLevel;
+	public GameObject player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        CurrentLevel = "level" + CurrentLevelNum;
-        finishScreenAlive.SetActive(false);
-        finishScreenDead.SetActive(false);
-    }
+	public GameObject playerEyes;
+
+	public GameObject torus;
+
+	[Header("Bools")]
+	public bool isFinishScreenActive;
+
+	public bool DeadOrAlive = true;
+
+	public bool GamePaused;
+
+	[Header("Current Level Vars")]
+	public float CurrentLevelNum = 1f;
+
+	public string CurrentLevel;
+
+	private void Start()
+	{
+		CurrentLevel = "level" + CurrentLevelNum;
+		finishScreenAlive.SetActive(value: false);
+		finishScreenDead.SetActive(value: false);
+	}
 
     // Update is called once per frame
     void Update()
@@ -96,52 +101,55 @@ public class GameManager : MonoBehaviour
 
     }
 
+	private void PauseGame()
+	{
+		Time.timeScale = 0f;
+		Debug.Log("Game Paused!");
+	}
 
+	private void ResumeGame()
+	{
+		Time.timeScale = 1f;
+		Debug.Log("Game Resumed!");
+	}
 
-    void PauseGame()
-    {
-        Time.timeScale = 0;
-        Debug.Log("Game Paused!");
-    }
+	public void ExternalRespawn()
+	{
+		player.SetActive(value: true);
+		playerEyes.SetActive(value: true);
+		player.GetComponent<Transform>().position = new Vector2(0f, 5f);
+		MonoBehaviour.print("player has been respawned externally");
+		torus.SetActive(value: true);
+	}
 
-    void ResumeGame()
-    {
-        Time.timeScale = 1;
-        Debug.Log("Game Resumed!");
-    }
+	public void GoToNextLevel()
+	{
+		string text = SceneManager.GetActiveScene().name;
+		CurrentLevelNum = float.Parse(text.Substring(5, text.Length - 5)) + 1f;
+		CurrentLevel = "level" + CurrentLevelNum;
+		SceneManager.LoadScene(CurrentLevel);
+	}
 
-    public void ExternalRespawn()
-    {
-        player.SetActive(true);
-        playerEyes.SetActive(true);
-        player.GetComponent<Transform>().position = player.GetComponent<PlayerController>().spawnPos;
-        print("player has been respawned externally");
-        torus.SetActive(true);
-    }
-
-    public void GoToNextLevel()
-    {
-        string sceneName = SceneManager.GetActiveScene().name;
-        CurrentLevelNum = float.Parse(sceneName.Substring(5, sceneName.Length - 5)) + 1;
-        CurrentLevel = "level" + CurrentLevelNum;
-        
-        SceneManager.LoadScene(CurrentLevel);
-        //thanks Enckripted
-
-    }
-
-    public void RestartLevel()
-    {
-        string sceneName = SceneManager.GetActiveScene().name;
-        CurrentLevelNum = float.Parse(sceneName.Substring(5, sceneName.Length - 5));
-        CurrentLevel = "level" + CurrentLevelNum;
-
-        SceneManager.LoadScene(CurrentLevel);
-    }
+	public void RestartLevel()
+	{
+		string text = SceneManager.GetActiveScene().name;
+		CurrentLevelNum = float.Parse(text.Substring(5, text.Length - 5));
+		CurrentLevel = "level" + CurrentLevelNum;
+		SceneManager.LoadScene(CurrentLevel);
+	}
 
     public void RestartGame()
     {
         SceneManager.LoadScene("level1");
         
     }
+	public void RestartGame()
+	{
+		SceneManager.LoadScene("level1");
+	}
+
+	public void GoToLevel(string levelName)
+	{
+		SceneManager.LoadScene(levelName);
+	}
 }

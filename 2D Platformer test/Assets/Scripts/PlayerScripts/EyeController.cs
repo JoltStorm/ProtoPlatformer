@@ -35,26 +35,34 @@ public class EyeController : MonoBehaviour
         //NOTE: you can say "new Vector2()" instead of "new", and that's what intellicode will default to, but both work fine.
         //NOTE 2: the "-0.2f" is there so the eyes appear in front of the body.
 
-        gameObject.transform.position = idleOffset;
 
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            gameObject.transform.position = leftOffset;
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            gameObject.transform.position = rightOffset;
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {   
-            gameObject.transform.position = upOffset;
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        if (PlayerBody.GetComponent<Rigidbody2D>().velocity.y <= -10)
         {
             gameObject.transform.position = downOffset;
+        }
+        else
+        {
+            gameObject.transform.position = idleOffset;
+
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            {
+                gameObject.transform.position = leftOffset;
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            {
+                gameObject.transform.position = rightOffset;
+            }
+
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            {
+                gameObject.transform.position = upOffset;
+            }
+
+            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            {
+                gameObject.transform.position = downOffset;
+            }
         }
     }
 }
