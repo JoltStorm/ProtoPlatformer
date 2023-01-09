@@ -143,10 +143,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("level1");
         
     }
-	public void RestartGame()
-	{
-		SceneManager.LoadScene("level1");
-	}
 
 	public void GoToLevel(string levelName)
 	{
