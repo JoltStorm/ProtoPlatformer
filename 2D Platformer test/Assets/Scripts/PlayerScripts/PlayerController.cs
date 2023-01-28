@@ -151,13 +151,14 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(HRspringForce, ForceMode2D.Impulse);
         }
+
+
         if (collision.gameObject.CompareTag("checkpoint"))
         {
             spawnPos = collision.gameObject.transform.position;
             print("checkpoint collected");
             collision.gameObject.SetActive(false);
         }
-
 
     }
 

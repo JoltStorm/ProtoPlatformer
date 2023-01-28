@@ -11,6 +11,15 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 
 # CHANGE LOG:
+1/28/2023 (0.4.1):
+
+	-Updated Unity Editor LTS version
+
+	-Fixed title
+
+	-Fixed Torus and checkpoints clipping through background
+
+
 1/8/2023 (0.4):
 
 	-Added new levels
