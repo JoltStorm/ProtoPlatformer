@@ -26,11 +26,14 @@ public class PlayerController : MonoBehaviour
     public Vector2 PlayerMoveSpeed; //X=50 Y=0
     public Vector2 PlayerJumpHeight; //X=0 Y=80
     public Vector2 FallSpeed; //X=0 Y= -160
+
     public Vector2 VspringForce; //X=0 Y=200
     public Vector2 HLspringForce; //X= -200 Y=0
     public Vector2 HRspringForce; //X=200 Y=0
-    public Vector2 spawnPos = new(0, 5);
+
     public Vector2 SpringLaunchDirection; //modify based on spring rotation
+
+    public Vector2 CurrentCheckpointLocation = new(0, 5); //set this to last touched checkpoint
     //note: dash removed for now, if it seems like a good enough idea we can add it back later
 
     [Header("Bools")]
@@ -118,7 +121,7 @@ public class PlayerController : MonoBehaviour
         player.SetActive(true);
         playerEyes.SetActive(true);
         rb.velocity = new Vector2(0, 0);
-        transform.position = spawnPos;
+        transform.position = CurrentCheckpointLocation;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -171,9 +174,9 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("checkpoint"))
         {
-            spawnPos = collision.gameObject.transform.position;
-            print("checkpoint collected");
+            CurrentCheckpointLocation = collision.transform.position;
             collision.gameObject.SetActive(false);
+            print("checkpoint collected");
         }
 
     }

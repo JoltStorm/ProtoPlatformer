@@ -129,11 +129,11 @@ public class GameManager : MonoBehaviour
 
 	public void ExternalRespawn()
 	{
-		player.SetActive(value: true);
-		playerEyes.SetActive(value: true);
-		player.GetComponent<Transform>().position = new Vector2(0f, 5f);
+		player.SetActive(true);
+		playerEyes.SetActive(true);
+		player.transform.position = player.GetComponent<PlayerController>().CurrentCheckpointLocation;
 		MonoBehaviour.print("player has been respawned externally");
-		torus.SetActive(value: true);
+		torus.SetActive(true);
 	}
 
 	public void GoToNextLevel()

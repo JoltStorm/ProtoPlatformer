@@ -1678,6 +1678,8 @@ MonoBehaviour:
   isFinishScreenActive: 0
   DeadOrAlive: 1
   GamePaused: 0
+  timerEnabled: 0
+  timePassed: 0
   CurrentLevelNum: 1
   CurrentLevel: 0
 --- !u!4 &528868325
@@ -3914,6 +3916,14 @@ PrefabInstance:
       propertyPath: GameManagerObject
       value: 
       objectReference: {fileID: 528868323}
+    - target: {fileID: 658859552, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
+      propertyPath: Checkpoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 658859552, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
+      propertyPath: Checkpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1641308770}
     - target: {fileID: 6218669812688182466, guid: 4811c501452e53c49b42d665697d9bf8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5100,12 +5110,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6344114530310704367, guid: 51cf7b7d6a11bd84c83f98a9c8db1408, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8249004578993584340, guid: 51cf7b7d6a11bd84c83f98a9c8db1408, type: 3}
       propertyPath: m_TagString
       value: checkpoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51cf7b7d6a11bd84c83f98a9c8db1408, type: 3}
+--- !u!1 &1641308770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1010779567967982956, guid: 51cf7b7d6a11bd84c83f98a9c8db1408, type: 3}
+  m_PrefabInstance: {fileID: 1641308769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1641392796
 PrefabInstance:
   m_ObjectHideFlags: 0

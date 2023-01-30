@@ -11,6 +11,13 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 
 # CHANGE LOG:
+
+1/29/2023 (anySpring test branch v1):
+
+	-Added compatibility for multiple checkpoints
+
+	-modified level 8 to prevent skip
+
 1/28/2023 (0.4.1):
 
 	-Updated Unity Editor LTS version
