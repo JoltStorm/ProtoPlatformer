@@ -1,7 +1,9 @@
-// Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-// GameManager
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +24,13 @@ public class GameManager : MonoBehaviour
 	public bool DeadOrAlive = true;
 
 	public bool GamePaused;
+
+    public bool timerEnabled;
+
+    [Header("Floats")]
+    public float timePassed;
+
+
 
 	[Header("Current Level Vars")]
 	public float CurrentLevelNum = 1f;
@@ -97,6 +106,11 @@ public class GameManager : MonoBehaviour
             {
                 RestartLevel();
             }
+        }
+
+        if(timerEnabled == true)
+        {
+            timePassed += Time.deltaTime;
         }
 
     }

@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 HLspringForce; //X= -200 Y=0
     public Vector2 HRspringForce; //X=200 Y=0
     public Vector2 spawnPos = new(0, 5);
+    public Vector2 SpringLaunchDirection; //modify based on spring rotation
     //note: dash removed for now, if it seems like a good enough idea we can add it back later
 
     [Header("Bools")]
@@ -104,6 +105,9 @@ public class PlayerController : MonoBehaviour
         {
             Respawn();
         }
+
+
+
     }
 
 
@@ -150,6 +154,18 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(HRspringForce, ForceMode2D.Impulse);
+        }
+
+
+
+        if (collision.gameObject.CompareTag("spring"))
+        {
+            rb.velocity = new Vector2(0, 0);
+
+            //apply force based on spring rotation
+            //NOTE: rotation seems to work based on a scale of 1, meaning that we can't read directly from the rotation and multiply it or something like that.
+            //for now, continue using old method for springs
+
         }
 
 

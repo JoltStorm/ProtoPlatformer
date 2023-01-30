@@ -212,10 +212,11 @@ MonoBehaviour:
   PlayerMoveSpeed: {x: 50, y: 0}
   PlayerJumpHeight: {x: 0, y: 80}
   FallSpeed: {x: 0, y: -160}
-  VspringForce: {x: 0, y: 0}
+  VspringForce: {x: 200, y: 0}
   HLspringForce: {x: -200, y: 0}
   HRspringForce: {x: 200, y: 0}
   spawnPos: {x: 0, y: 5}
+  SpringLaunchDirection: {x: 0, y: 0}
   IsGrounded: 1
   DoubleDepleted: 0
   SpeedcapEnabled: 1
