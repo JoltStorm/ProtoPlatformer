@@ -165,6 +165,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(0, 0);
 
+            //Pastebin with my ideas: https://pastebin.mozilla.org/qhJdWwts
+            //(real pastebin is blocked on school iPads for some reason?
+            
             //apply force based on spring rotation
             //NOTE: rotation seems to work based on a scale of 1, meaning that we can't read directly from the rotation and multiply it or something like that.
             //for now, continue using old method for springs
