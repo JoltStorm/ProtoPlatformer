@@ -6,9 +6,12 @@ My first attempt at a platformer. Enjoy.
 
 https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sharing
 
+# HOW TO INSTALL BUILD:
 
-# !! THIS BRANCH IS TEMPORARY. PLEASE DELETE AFTER MERGING. CHANGELOG IS NOT UPDATED YET !!
-
+1. Go to google drive
+2. download ENTIRE folder for the NEWEST BUILD
+3. extract the zip file (go to where it downloaded, right click, and extract all)
+4. run ProtoPlatformer.exe in the folder with everything
 
 # CHANGE LOG:
 1/28/2023 (0.4.1):
