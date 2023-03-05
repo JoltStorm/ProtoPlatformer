@@ -10,11 +10,13 @@ TagManager:
   - exit
   - touchKill
   - VSpring
-  - spring
   - HLspring
   - HRspring
   - HSpring
   - checkpoint
+  - floor
+  - ceiling
+  - wall
   layers:
   - Default
   - TransparentFX
