@@ -18,6 +18,12 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 
 	-modified level 8 to prevent skip
 
+	-Replaced springs with bounce blocks, as they fit better with the game's style
+
+	-Added a new level
+
+	-Added coyote time
+
 1/28/2023 (0.4.1):
 
 	-Updated Unity Editor LTS version

@@ -4,21 +4,27 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//TO DO: 
-
 public class PlayerController : MonoBehaviour
 {
+
+    //TODO: Change floor tiles so they work properly (no more ceiling bumps)
+
+
+    [Header("Dev Tools")] // for cheats and testing tools
+    //find a silly secret way to enable these >:}
+    // ! set the actually useful ones to public for testing, set all the funny cheat ones to private since we won't need them in testing
+    
+
+
     [Header("Object References")]
     public GameObject player;
     public GameObject playerEyes;
-    public GameObject GameManagerObject;
-    public GameObject Torus;
     private Rigidbody2D rb;
-    public GameObject finishDead;
 
-    [Header("Floats")]
-    public float SpeedCapX; //unused for now
-    public float SpeedCapY; //default is 100
+    public GameObject GameManagerObject;
+
+    public GameObject Torus;
+    public GameObject finishDead;
 
     [Header("Vectors")]
     //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel on the player.
@@ -31,16 +37,21 @@ public class PlayerController : MonoBehaviour
     public Vector2 HLspringForce; //X= -200 Y=0
     public Vector2 HRspringForce; //X=200 Y=0
 
-    public Vector2 SpringLaunchDirection; //modify based on spring rotation
-
     public Vector2 CurrentCheckpointLocation = new(0, 5); //set this to last touched checkpoint
-    //note: dash removed for now, if it seems like a good enough idea we can add it back later
+
+
+    [Header("Floats")]
+    public float SpeedCapX; //default is 100
+    public float SpeedCapY; //default is 100
+
+    public float CoyoteTime;
+    private float CoyoteTimeCounter;
+
 
     [Header("Bools")]
     public bool IsGrounded = true;
     public bool DoubleDepleted = false;
     public bool SpeedcapEnabled = true;
-    //public for debugging reasons. 
 
     void Start()
     {
@@ -48,8 +59,10 @@ public class PlayerController : MonoBehaviour
         //for easy referencing to the player's rigidbody.
     }
 
-    private void FixedUpdate()
+    
+    void Update()
     {
+        
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             transform.Translate(-PlayerMoveSpeed * Time.deltaTime);
@@ -59,17 +72,27 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(PlayerMoveSpeed * Time.deltaTime);
         }
-        //player controls are in fixed update to prevent differences in speed with different framerates
 
-    }
+        if(IsGrounded == true)
+        {
+            CoyoteTimeCounter = CoyoteTime;
+        }
+        else
+        {
+            CoyoteTimeCounter -= Time.deltaTime;
+        }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded == true || Input.GetKeyDown(KeyCode.W) && IsGrounded == true)
+        if (Input.GetButtonDown("Jump") && CoyoteTimeCounter > 0f)
         {
             rb.AddForce(PlayerJumpHeight, ForceMode2D.Impulse);
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded == false && DoubleDepleted == false || Input.GetKeyDown(KeyCode.W) && IsGrounded == false && DoubleDepleted == false)
+
+        if (Input.GetButtonUp("Jump") && CoyoteTimeCounter > 0f)
+        {
+            CoyoteTimeCounter = 0f;
+        }
+
+        if (Input.GetButtonDown("Jump") && IsGrounded == false && DoubleDepleted == false)
         {
             rb.velocity = new Vector2(0, 0);
             //velocity is reset as to allow more horizontal movement in midair
@@ -79,8 +102,6 @@ public class PlayerController : MonoBehaviour
 
         SpeedcapEnabled = true;
 
-        //GetKeyDown is used to prevent infinite jumps.
-
         if (rb.velocity.y >= SpeedCapY && SpeedcapEnabled == true)
         {
             rb.velocity = new Vector2(rb.velocity.x, 100);
@@ -89,7 +110,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, -100);
         }
-        //The velocity caps are for wallboosting and springs
+
+        //The velocity caps are for wallboosting and bounceFloors
 
         if (IsGrounded == true)
         {
@@ -108,9 +130,6 @@ public class PlayerController : MonoBehaviour
         {
             Respawn();
         }
-
-
-
     }
 
 
@@ -126,7 +145,21 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        IsGrounded = true;
+        if(collision.gameObject.CompareTag("floor"))
+        {
+            IsGrounded = true;
+        }
+
+        if(collision.gameObject.CompareTag("wall"))
+        {
+            DoubleDepleted = false;
+        }
+
+        if(collision.gameObject.CompareTag("ceiling"))
+        {
+            DoubleDepleted = true;
+            IsGrounded = false;
+        }
 
         if (collision.gameObject.CompareTag("spike"))
         {
@@ -157,21 +190,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(HRspringForce, ForceMode2D.Impulse);
-        }
-
-
-
-        if (collision.gameObject.CompareTag("spring"))
-        {
-            rb.velocity = new Vector2(0, 0);
-
-            //Pastebin with my ideas: https://pastebin.mozilla.org/qhJdWwts
-            //(real pastebin is blocked on school iPads for some reason?
-            
-            //apply force based on spring rotation
-            //NOTE: rotation seems to work based on a scale of 1, meaning that we can't read directly from the rotation and multiply it or something like that.
-            //for now, continue using old method for springs
-
         }
 
 
@@ -214,5 +232,4 @@ public class PlayerController : MonoBehaviour
     {
         IsGrounded = false;
     }
-        
 }

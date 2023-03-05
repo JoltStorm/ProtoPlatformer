@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1347149031663828208}
   - component: {fileID: 6344114530310704367}
-  - component: {fileID: 1790742473}
   - component: {fileID: 7591917309268277545}
   m_Layer: 0
   m_Name: Checkpoint
@@ -45,25 +44,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.031353474}
   serializedVersion: 2
   m_Radius: 1.5346665
---- !u!114 &1790742473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010779567967982956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b05fd805751c3f548b515b9e0e1f8411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpointNum: 0
 --- !u!114 &7591917309268277545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +143,19 @@ GameObject:
   m_PrefabInstance: {fileID: 8170484617060967298}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3102587944839792276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9052813223668702931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb548f1bcd882c49880c0dee27b8569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotateDirection: {x: 100, y: 100, z: 0}
+--- !u!114 &901920169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

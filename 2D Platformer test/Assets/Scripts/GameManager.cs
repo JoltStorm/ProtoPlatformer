@@ -8,12 +8,11 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 	[Header("Object References")]
-	public GameObject finishScreenAlive;
 
+	public GameObject finishScreenAlive;
 	public GameObject finishScreenDead;
 
 	public GameObject player;
-
 	public GameObject playerEyes;
 
 	public GameObject torus;
@@ -28,12 +27,14 @@ public class GameManager : MonoBehaviour
     public bool timerEnabled;
 
     [Header("Floats")]
+
     public float timePassed;
 
 
 
 	[Header("Current Level Vars")]
-	public float CurrentLevelNum = 1f;
+
+	public float CurrentLevelNum = 1;
 
 	public string CurrentLevel;
 
@@ -68,7 +69,6 @@ public class GameManager : MonoBehaviour
 
         }
 
-        //1 and 2 are used (for now) so that pausing doesn't immidiately unpause after pausing. Try to find a fix for this soon. -JS
         if (player.activeInHierarchy == false)
         {
             if (isFinishScreenActive == true && DeadOrAlive == false)

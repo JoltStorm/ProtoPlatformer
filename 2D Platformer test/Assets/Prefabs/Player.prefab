@@ -207,16 +207,16 @@ MonoBehaviour:
   GameManagerObject: {fileID: 0}
   Torus: {fileID: 0}
   finishDead: {fileID: 0}
-  SpeedCapX: 0
-  SpeedCapY: 100
   PlayerMoveSpeed: {x: 50, y: 0}
   PlayerJumpHeight: {x: 0, y: 80}
   FallSpeed: {x: 0, y: -160}
-  VspringForce: {x: 200, y: 0}
+  VspringForce: {x: 0, y: 200}
   HLspringForce: {x: -200, y: 0}
   HRspringForce: {x: 200, y: 0}
-  spawnPos: {x: 0, y: 5}
-  SpringLaunchDirection: {x: 0, y: 0}
+  CurrentCheckpointLocation: {x: 0, y: 5}
+  SpeedCapX: 0
+  SpeedCapY: 100
+  CoyoteTime: 0.2
   IsGrounded: 1
   DoubleDepleted: 0
   SpeedcapEnabled: 1
