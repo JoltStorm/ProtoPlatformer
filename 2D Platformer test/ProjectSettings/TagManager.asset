@@ -17,6 +17,7 @@ TagManager:
   - floor
   - ceiling
   - wall
+  - redFloor
   layers:
   - Default
   - TransparentFX

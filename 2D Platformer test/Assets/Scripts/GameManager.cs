@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
 
 	public bool DeadOrAlive = true;
 
-	public bool GamePaused;
-
     public bool timerEnabled;
 
     [Header("Floats")]
@@ -48,18 +46,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && GamePaused == false)
-        {
-            PauseGame();
-            GamePaused = true;
-
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && GamePaused == true)
-        {
-            ResumeGame();
-            GamePaused = false;
-        }
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if(player.activeInHierarchy == false)
