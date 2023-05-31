@@ -29,20 +29,21 @@ public class PlayerController : MonoBehaviour
     [Header("Vectors")]
     //I made these public for easy movement speed/jump height tweaks, edit the values through the inspect panel on the player.
     //default values are next to the vectors
-    public Vector2 PlayerMoveSpeed; //X=50 Y=0
-    public Vector2 PlayerJumpHeight; //X=0 Y=80
     public Vector2 FallSpeed; //X=0 Y= -160
 
     public Vector2 VspringForce; //X=0 Y=200
     public Vector2 HLspringForce; //X= -200 Y=0
-    public Vector2 HRspringForce; //X=200 Y=0
 
     public Vector2 CurrentCheckpointLocation = new(0, 5); //set this to last touched checkpoint
 
 
     [Header("Floats")]
-    public float SpeedCapX; //default is 100
+    public float PlayerMoveSpeed;
+//  public float SpeedCapX; default is 100
     public float SpeedCapY; //default is 100
+    public float dirX;
+    public float playerJumpHeight; //default is 80
+    public float HRspringForce;
 
     public float CoyoteTime;
     private float CoyoteTimeCounter;
@@ -52,28 +53,24 @@ public class PlayerController : MonoBehaviour
     public bool IsGrounded = true;
     public bool DoubleDepleted = false;
     public bool SpeedcapEnabled = true;
+    public bool bounceFloorTouched = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //for easy referencing to the player's rigidbody.
+        //for easy referencing to the player's rigidbody
     }
 
     
     void Update()
     {
-        
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(-PlayerMoveSpeed * Time.deltaTime);
-        }
+        //revamped movement system
 
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(PlayerMoveSpeed * Time.deltaTime);
-        }
+        dirX = Input.GetAxis("Horizontal");
 
-        if(IsGrounded == true)
+        rb.velocity = new Vector2(dirX * PlayerMoveSpeed, rb.velocity.y);
+
+        if (IsGrounded == true)
         {
             CoyoteTimeCounter = CoyoteTime;
         }
@@ -84,7 +81,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && CoyoteTimeCounter > 0f)
         {
-            rb.AddForce(PlayerJumpHeight, ForceMode2D.Impulse);
+            //rb.AddForce(PlayerJumpHeight, ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x, playerJumpHeight);
         }
 
         if (Input.GetButtonUp("Jump") && CoyoteTimeCounter > 0f)
@@ -96,7 +94,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(0, 0);
             //velocity is reset as to allow more horizontal movement in midair
-            rb.AddForce(PlayerJumpHeight, ForceMode2D.Impulse);
+            //rb.AddForce(playerJumpHeight, ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x, playerJumpHeight);
             DoubleDepleted = true;
         }
 
@@ -188,8 +187,7 @@ public class PlayerController : MonoBehaviour
         } 
         if (collision.gameObject.CompareTag("HRspring"))
         {
-            rb.velocity = new Vector2(0, 0);
-            rb.AddForce(HRspringForce, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(HRspringForce, 20), ForceMode2D.Impulse);
         }
 
 
@@ -225,7 +223,11 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        IsGrounded = true;
+        if (collision.gameObject.CompareTag("floor"))
+        {
+            IsGrounded = true;
+        }
+
     }
 
     void OnCollisionExit2D(Collision2D collision)
