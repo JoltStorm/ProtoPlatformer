@@ -182,12 +182,11 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("HLspring"))
         {
-            rb.velocity = new Vector2(0, 0);
-            rb.AddForce(HLspringForce, ForceMode2D.Impulse);
+
         } 
         if (collision.gameObject.CompareTag("HRspring"))
         {
-            rb.AddForce(new Vector2(HRspringForce, 20), ForceMode2D.Impulse);
+
         }
 
 
