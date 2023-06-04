@@ -4199,6 +4199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vspring_floor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8045537322360975570, guid: 10e1de6ed27bf5e4fb345ce310069e25, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d85ab7d2a8f59514ba0518abfbe93946, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10e1de6ed27bf5e4fb345ce310069e25, type: 3}
 --- !u!1001 &1811357588

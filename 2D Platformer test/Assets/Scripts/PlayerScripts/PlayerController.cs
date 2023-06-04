@@ -175,21 +175,6 @@ public class PlayerController : MonoBehaviour
             PlayerKill();
         }
 
-        if (collision.gameObject.CompareTag("VSpring"))
-        {
-            rb.velocity = new Vector2(0, 0);
-            rb.AddForce(VspringForce, ForceMode2D.Impulse);
-        }
-        if (collision.gameObject.CompareTag("HLspring"))
-        {
-
-        } 
-        if (collision.gameObject.CompareTag("HRspring"))
-        {
-
-        }
-
-
         if (collision.gameObject.CompareTag("checkpoint"))
         {
             CurrentCheckpointLocation = collision.transform.position;
