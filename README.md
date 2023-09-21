@@ -13,6 +13,9 @@ https://drive.google.com/drive/folders/11pzRJjj_vS82AWQuviEPSMlfHT-5vHXn?usp=sha
 3. extract the zip file (go to where it downloaded, right click, and extract all)
 4. run ProtoPlatformer.exe in the folder with everything
 
+#IMPORTANT!!!!!!!!!!!
+i'm not gonna be updating this anymore, but keep an eye out for projects in godot
+
 # CHANGE LOG:
 1/28/2023 (0.4.1):
 
